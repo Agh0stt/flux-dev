@@ -9,7 +9,7 @@ the compiler (main.c / fluxc) converts the high level code into low level opcode
 # steps:
 (dependencies)::
 (linux and unix):
- git clang python gcc
+ git clang python dartsdk/dart
  (windows):
  VS STUDIO 2022/+
  MSVC
@@ -22,15 +22,11 @@ the compiler (main.c / fluxc) converts the high level code into low level opcode
  cd flux-dev
  ## compile:
  (unix and linux):
- (clang):
- clang main.c -o fluxc
- clang vm.c -o fluxvm
- (gcc):
- gcc main.c -o fluxc
- gcc vm.c -o fluxvm
+  dart compile exe main.dart -o fluxc
+ dart compile exe vm.dart -o fluxvm
  (windows):
- cl /Fe:fluxc main.c
- cl /Fe:fluxvm vm.c
+ dart compile exe main.dart -o fluxc.exe
+ dart compile exe vm.dart -o fluxvm.exe
  ## compiling the programs:
  (linux/unix):
  ./fluxc hello.flux hello.fluxb
